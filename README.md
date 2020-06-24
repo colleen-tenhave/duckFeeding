@@ -1,12 +1,12 @@
 # duckFeeding
 
-##Getting Started
+## Getting Started
 
-###Prerequisites
+### Prerequisites
 This app requires Node.js. Please [download and install](https://nodejs.org/en/download/) before running.
 This app also requires [MySQL](https://www.mysql.com/downloads/).
 
-###Installing
+### Installing
 Clone this repository. Navigate to this directory in your terminal.
 To start the frontend, navigate to the `frontend` directory in the project
 `cd frontend`
