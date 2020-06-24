@@ -11,7 +11,6 @@ var connection = mysql.createConnection({
 });    
 
 router.post('/', function(req, res) {
-    console.log("fafsafsfd");
     var postData  = req.body;
     connection.query('INSERT INTO entries SET ?', postData, function (error, results, fields) {
         if (error) throw error;
@@ -20,7 +19,6 @@ router.post('/', function(req, res) {
   });
 
 router.get('/', function (req, res) {
-   console.log(req);
    connection.query('SELECT * from entries', function (error, results, fields) {
 	  if (error) throw error;
 	  res.end(JSON.stringify(results));
