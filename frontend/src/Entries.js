@@ -25,12 +25,29 @@ componentWillMount(){
         return (
           <div className="Entries">
             <h2>
-              Submissions From Fellow Duck Lovers: 
+              Interested in learning more? 
             </h2>
+            <p>
+              Check out duck feeding data submissions from users all over the world:
+            </p>
+
             <table className="Entries-list">
+              <tr>
+                <th>Feeding Time</th>
+                <th>Feeding Location</th>
+                <th>Food Type</th>
+                <th>Number of Ducks Fed</th>
+                <th>Amount of Food</th>
+              </tr>
             {data.map(function(entry, idx){
-              return (<tr key={idx}><td>Feeding Time: {entry.feedingTime}</td><td> Feeding Location: {entry.feedingLocation}</td><td>
-              Food Type: {entry.foodType}</td><td> Number of Ducks Fed: {entry.numberOfDucks}</td><td> Amount of Food: {entry.quantityOfFood}</td></tr>)
+              return (
+              <tr key={idx}>
+                <td>{entry.feedingTime}</td>
+                <td> {entry.feedingLocation}</td>
+                <td>{entry.foodType}</td>
+                <td>{entry.numberOfDucks}</td
+                ><td> {entry.quantityOfFood}</td>
+              </tr>)
             })}
             </table>
           </div>

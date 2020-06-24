@@ -1,8 +1,14 @@
 .Entries {
-    background-color: #282c34;
-    color: white;
+    background-color: #D0D0D0;
+    min-height: 40vh;
+    align-items: center;
   }
 
-.Entries-list {
-    text-align: left;
+table {
+    border-collapse: collapse;
+    margin-left:auto; 
+    margin-right:auto;
+}
+table, th, td {
+    border:1px solid black; 
 }
