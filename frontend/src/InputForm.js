@@ -44,23 +44,23 @@ class App extends Component {
             <form onSubmit={this.handleSubmit} >
               <div>
                 Time of Feeding:
-                <input type="text" name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange}/>
+                <input type="text" name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required/>
               </div>
               <div>
                 Type of Food: 
-                <input type="text" name="foodType" value={this.state.foodType} onChange={this.handleChange}/>
+                <input type="text" name="foodType" value={this.state.foodType} onChange={this.handleChange} required/>
               </div>
               <div>
                 Feeding Location: 
-                <input type="text" name="feedingLocation" value={this.state.feedingLocation} onChange={this.handleChange}/>
+                <input type="text" name="feedingLocation" value={this.state.feedingLocation} onChange={this.handleChange} required/>
               </div>
               <div>
                 Number of Ducks: 
-                <input type="text" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange}/>
+                <input type="text" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange} required/>
               </div>
               <div>
                 Quantity of Food: 
-                <input type="text" name="quantityOfFood" value={this.state.quantityOfFood} onChange={this.handleChange}/>
+                <input type="text" name="quantityOfFood" value={this.state.quantityOfFood} onChange={this.handleChange} required/>
               </div>
               <input type="submit" value="submit"/>
             </form>
