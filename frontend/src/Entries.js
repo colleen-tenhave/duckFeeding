@@ -20,7 +20,7 @@ componentWillMount(){
  }
 
   render() {
-        console.log(typeof this.state.submissions);
+        this.fetchEntries();
         const data = this.state.submissions;
         return (
           <div className="Entries">
@@ -32,13 +32,16 @@ componentWillMount(){
             </p>
 
             <table className="Entries-list">
-              <tr>
-                <th>Feeding Time</th>
-                <th>Feeding Location</th>
-                <th>Food Type</th>
-                <th>Number of Ducks Fed</th>
-                <th>Amount of Food</th>
-              </tr>
+              <thead>
+                <tr>
+                  <th>Feeding Time</th>
+                  <th>Feeding Location</th>
+                  <th>Food Type</th>
+                  <th>Number of Ducks Fed</th>
+                  <th>Amount of Food</th>
+                </tr>
+              </thead>
+              <tbody>
             {data.map(function(entry, idx){
               return (
               <tr key={idx}>
@@ -49,6 +52,7 @@ componentWillMount(){
                 ><td> {entry.quantityOfFood}</td>
               </tr>)
             })}
+              </tbody>
             </table>
           </div>
         );
