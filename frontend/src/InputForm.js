@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './InputForm.css';
 
 const feedingDataEntry = "http://localhost:9000/feedingDataEntry";
 class App extends Component {
@@ -50,11 +51,14 @@ class App extends Component {
       return (
         <div className="InputForm">
             <h2>
-              Please Enter Your Data
+              Have Data to Share? We'd Love To Hear From You
             </h2>
+            <p>
+              Please submit your duck feeding observations below:
+            </p>
             <form onSubmit={this.handleSubmit} >
                 <div>
-                Time of Feeding:&nbsp;&nbsp;
+                Time of Feeding:&nbsp;
                 <select name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required>
                   {times.map(function(time, index){
                     return(
@@ -64,7 +68,7 @@ class App extends Component {
                 </select>
                 </div>
               <div>
-                Type of Food:&nbsp;
+                Type of Food:&nbsp;&nbsp;
                 <input type="text" name="foodType" value={this.state.foodType} onChange={this.handleChange} required/>
               </div>
               <div>
@@ -79,7 +83,7 @@ class App extends Component {
                 Quantity of Food:&nbsp; 
                 <input type="text" name="quantityOfFood" value={this.state.quantityOfFood} onChange={this.handleChange} required/>
               </div>
-              <input type="submit" value="submit"/>
+              <input className="InputForm-submit" type="submit" value="submit"/>
             </form>
         </div>
       );

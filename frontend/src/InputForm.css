@@ -1,0 +1,19 @@
+.InputForm {
+    min-height: 50vh;
+    margin: 40px;
+}
+
+.InputForm-submit {
+    height: 20px;
+    margin-top: 30px;
+}
+
+select {
+    width: 150px;
+    height: 20px;
+}
+
+input {
+    width: 150px;
+    height: 15px;
+}
