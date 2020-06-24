@@ -1,8 +1,28 @@
+var mysql = require('mysql');
 var express = require('express');
 var router = express.Router();
 
-router.post('/', function(req, res, next) {
-    res.send('entry recieved');
+
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "duckDataDb"
+});    
+
+router.post('/', function(req, res) {
+    var postData  = req.body;
+    connection.query('INSERT INTO entries SET ?', postData, function (error, results, fields) {
+        if (error) throw error;
+        res.end(JSON.stringify(results));
+      });
+  });
+
+router.get('/', function (req, res) {
+   connection.query('SELECT * from entries', function (error, results, fields) {
+	  if (error) throw error;
+	  res.end(JSON.stringify(results));
+	});
 });
 
 module.exports = router;
