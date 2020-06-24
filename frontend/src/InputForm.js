@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import './InputForm.css';
 
-const feedingDataEntry = "http://localhost:9000/feedingDataEntry";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ class App extends Component {
         }
     )  
     .then(response => response.json())
-    .then((response) => {
+    .then(() => {
       alert("Thank you, your data has been submitted");
       this.setState({
         feedingTime: '',
@@ -37,7 +36,7 @@ class App extends Component {
         numberOfDucks: '',
         quantityOfFood: ''
       })
-      this.props.rerenderCallback(response);
+      this.props.rerenderCallback();
     });
   }
 

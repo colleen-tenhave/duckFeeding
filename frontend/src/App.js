@@ -7,10 +7,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.rerenderCallback = this.rerenderCallback.bind(this);
+    this.state = {
+      submissions: []
+    };
    }
 
-  rerenderCallback(apiResponse) {
-    this.setState({apiResponse: apiResponse})
+  rerenderCallback() {
+    this.fetchEntries();
+  }
+
+  fetchEntries() {
+    fetch("http://localhost:9000/feedingDataEntry")
+    .then(res => res.text())
+    .then(res => this.setState({ submissions: JSON.parse(res)}));
+  }
+
+  componentWillMount(){
+    this.fetchEntries();
   }
 
   render() {
@@ -25,7 +38,7 @@ class App extends Component {
             </p>
           </header>
           <InputForm rerenderCallback={this.rerenderCallback}/>
-          <Entries />
+          <Entries submissions={this.state.submissions}/>
         </div>
       );
   }
