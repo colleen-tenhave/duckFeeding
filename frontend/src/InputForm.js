@@ -28,7 +28,7 @@ class App extends Component {
         }
     )  
     .then(response => response.json())
-    .then(() => {
+    .then((response) => {
       alert("Thank you, your data has been submitted");
       this.setState({
         feedingTime: '',
@@ -37,6 +37,7 @@ class App extends Component {
         numberOfDucks: '',
         quantityOfFood: ''
       })
+      this.props.rerenderCallback(response);
     });
   }
 
