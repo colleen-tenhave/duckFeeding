@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './Entries.css';
 
 const feedingDataEntry = "http://localhost:9000/feedingDataEntry";
 class App extends Component {
@@ -22,14 +23,16 @@ componentWillMount(){
         console.log(typeof this.state.submissions);
         const data = this.state.submissions;
         return (
-          <div>
+          <div className="Entries">
             <h2>
               Submissions From Fellow Duck Lovers: 
             </h2>
+            <table className="Entries-list">
             {data.map(function(entry, idx){
-              return (<div key={idx}>Feeding Time: {entry.feedingTime}, Feeding Location: {entry.feedingLocation},
-              Food Type: {entry.foodType}, Number of Ducks Fed: {entry.numberOfDucks}, Amount of Food: {entry.quantityOfFood}</div>)
+              return (<tr key={idx}><td>Feeding Time: {entry.feedingTime}</td><td> Feeding Location: {entry.feedingLocation}</td><td>
+              Food Type: {entry.foodType}</td><td> Number of Ducks Fed: {entry.numberOfDucks}</td><td> Amount of Food: {entry.quantityOfFood}</td></tr>)
             })}
+            </table>
           </div>
         );
   }
