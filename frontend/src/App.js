@@ -14,9 +14,9 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <h1>
-              Welcome to Duck Hub
+              Welcome to Duck Hub.
             </h1>
-            <p className="App-description">
+            <p className="App-subtitle">
               The world's largest duck data sharing platform
             </p>
           </header>
