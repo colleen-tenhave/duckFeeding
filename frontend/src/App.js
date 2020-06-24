@@ -3,22 +3,42 @@ import './App.css';
 import InputForm from './InputForm.js'
 import Entries from './Entries.js'
 
-const feedingTime = "http://localhost:9000/feedingTime";
 class App extends Component {
   constructor(props) {
     super(props);
+    this.rerenderCallback = this.rerenderCallback.bind(this);
+    this.state = {
+      submissions: []
+    };
    }
+
+  rerenderCallback() {
+    this.fetchEntries();
+  }
+
+  fetchEntries() {
+    fetch("http://localhost:9000/feedingDataEntry")
+    .then(res => res.text())
+    .then(res => this.setState({ submissions: JSON.parse(res)}));
+  }
+
+  componentWillMount(){
+    this.fetchEntries();
+  }
 
   render() {
       return (
         <div className="App">
           <header className="App-header">
-            <p>
-              Welcome to Duck Hub
+            <h1>
+              Welcome to Duck Hub.
+            </h1>
+            <p className="App-subtitle">
+              The world's largest duck data sharing platform
             </p>
           </header>
-          <InputForm />
-          <Entries />
+          <InputForm rerenderCallback={this.rerenderCallback}/>
+          <Entries submissions={this.state.submissions}/>
         </div>
       );
   }

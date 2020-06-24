@@ -56,7 +56,6 @@ connection.connect(function(err) {
   connection.query("CREATE DATABASE IF NOT EXISTS duckDataDb", function (err, result) {
     if (err) throw err;
     console.log("Database created");
-    connection
   });
   connection.query("USE duckDataDb");
   var query = "CREATE TABLE IF NOT EXISTS Entries ( feedingTime varchar(255), foodType varchar(255), feedingLocation varchar(255), numberOfDucks varchar(255), quantityOfFood varchar(255))"

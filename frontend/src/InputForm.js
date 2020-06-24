@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import './InputForm.css';
 
-const feedingDataEntry = "http://localhost:9000/feedingDataEntry";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,6 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(JSON.stringify(this.state));
     fetch(
         "http://localhost:9000/feedingDataEntry", {
           method: 'post',
@@ -26,7 +25,19 @@ class App extends Component {
           },
           body: JSON.stringify(this.state)
         }
-        )
+    )  
+    .then(response => response.json())
+    .then(() => {
+      alert("Thank you, your data has been submitted");
+      this.setState({
+        feedingTime: '',
+        foodType: '',
+        feedingLocation: '',
+        numberOfDucks: '',
+        quantityOfFood: ''
+      })
+      this.props.rerenderCallback();
+    });
   }
 
   handleChange(event) {
@@ -36,33 +47,43 @@ class App extends Component {
   }
 
   render() {
+      const times = Array.from(Array(24).keys());
       return (
         <div className="InputForm">
+            <h2>
+              Have Data to Share? We'd Love To Hear From You
+            </h2>
             <p>
-              Please Enter Your Data
+              Please submit your duck feeding observations below:
             </p>
             <form onSubmit={this.handleSubmit} >
+                <div>
+                Time of Feeding:&nbsp;
+                <select name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required>
+                  {times.map(function(time, index){
+                    return(
+                    <option key={index}>{time}:00</option>
+                    )
+                  })}
+                </select>
+                </div>
               <div>
-                Time of Feeding:
-                <input type="text" name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required/>
-              </div>
-              <div>
-                Type of Food: 
+                Type of Food:&nbsp;&nbsp;
                 <input type="text" name="foodType" value={this.state.foodType} onChange={this.handleChange} required/>
               </div>
               <div>
-                Feeding Location: 
+                Feeding Location:&nbsp;
                 <input type="text" name="feedingLocation" value={this.state.feedingLocation} onChange={this.handleChange} required/>
               </div>
               <div>
-                Number of Ducks: 
-                <input type="text" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange} required/>
+                Number of Ducks:&nbsp;
+                <input type="number" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange} required/>
               </div>
               <div>
-                Quantity of Food: 
+                Quantity of Food:&nbsp; 
                 <input type="text" name="quantityOfFood" value={this.state.quantityOfFood} onChange={this.handleChange} required/>
               </div>
-              <input type="submit" value="submit"/>
+              <input className="InputForm-submit" type="submit" value="submit"/>
             </form>
         </div>
       );
