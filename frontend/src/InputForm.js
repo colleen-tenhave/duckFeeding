@@ -49,12 +49,12 @@ class App extends Component {
       const times = Array.from(Array(24).keys());
       return (
         <div className="InputForm">
-            <p>
+            <h2>
               Please Enter Your Data
-            </p>
+            </h2>
             <form onSubmit={this.handleSubmit} >
-              <div>
-                Time of Feeding:
+                <div>
+                Time of Feeding:&nbsp;&nbsp;
                 <select name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required>
                   {times.map(function(time, index){
                     return(
@@ -62,21 +62,21 @@ class App extends Component {
                     )
                   })}
                 </select>
-              </div>
+                </div>
               <div>
-                Type of Food: 
+                Type of Food:&nbsp;
                 <input type="text" name="foodType" value={this.state.foodType} onChange={this.handleChange} required/>
               </div>
               <div>
-                Feeding Location: 
+                Feeding Location:&nbsp;
                 <input type="text" name="feedingLocation" value={this.state.feedingLocation} onChange={this.handleChange} required/>
               </div>
               <div>
-                Number of Ducks: 
+                Number of Ducks:&nbsp;
                 <input type="number" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange} required/>
               </div>
               <div>
-                Quantity of Food: 
+                Quantity of Food:&nbsp; 
                 <input type="text" name="quantityOfFood" value={this.state.quantityOfFood} onChange={this.handleChange} required/>
               </div>
               <input type="submit" value="submit"/>

@@ -23,9 +23,9 @@ componentWillMount(){
         const data = this.state.submissions;
         return (
           <div>
-            <p>
+            <h2>
               Submissions From Fellow Duck Lovers: 
-            </p>
+            </h2>
             {data.map(function(entry, idx){
               return (<div key={idx}>Feeding Time: {entry.feedingTime}, Feeding Location: {entry.feedingLocation},
               Food Type: {entry.foodType}, Number of Ducks Fed: {entry.numberOfDucks}, Amount of Food: {entry.quantityOfFood}</div>)
