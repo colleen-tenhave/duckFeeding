@@ -17,7 +17,6 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(JSON.stringify(this.state));
     fetch(
         "http://localhost:9000/feedingDataEntry", {
           method: 'post',
@@ -47,6 +46,7 @@ class App extends Component {
   }
 
   render() {
+      const times = Array.from(Array(24).keys());
       return (
         <div className="InputForm">
             <p>
@@ -55,7 +55,13 @@ class App extends Component {
             <form onSubmit={this.handleSubmit} >
               <div>
                 Time of Feeding:
-                <input type="text" name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required/>
+                <select name="feedingTime" value={this.state.feedingTime} onChange={this.handleChange} required>
+                  {times.map(function(time, index){
+                    return(
+                    <option key={index}>{time}:00</option>
+                    )
+                  })}
+                </select>
               </div>
               <div>
                 Type of Food: 
@@ -67,7 +73,7 @@ class App extends Component {
               </div>
               <div>
                 Number of Ducks: 
-                <input type="text" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange} required/>
+                <input type="number" name="numberOfDucks" value={this.state.numberOfDucks} onChange={this.handleChange} required/>
               </div>
               <div>
                 Quantity of Food: 
