@@ -13,8 +13,11 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-            <p>
+            <h1>
               Welcome to Duck Hub
+            </h1>
+            <p className="App-description">
+              The world's largest duck data sharing platform
             </p>
           </header>
           <InputForm />
