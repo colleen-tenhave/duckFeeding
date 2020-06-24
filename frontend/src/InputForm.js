@@ -26,7 +26,18 @@ class App extends Component {
           },
           body: JSON.stringify(this.state)
         }
-        )
+    )  
+    .then(response => response.json())
+    .then(() => {
+      alert("Thank you, your data has been submitted");
+      this.setState({
+        feedingTime: '',
+        foodType: '',
+        feedingLocation: '',
+        numberOfDucks: '',
+        quantityOfFood: ''
+      })
+    });
   }
 
   handleChange(event) {
