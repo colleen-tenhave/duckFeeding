@@ -36,17 +36,20 @@ class App extends Component {
         numberOfDucks: '',
         quantityOfFood: ''
       })
+      //rerender Entries to show new submission
       this.props.rerenderCallback();
     });
   }
 
   handleChange(event) {
+    //update state with new data from input
     const name = event.target.name;
     const value = event.target.value;
     this.setState({[name]: value});
   }
 
   render() {
+      //generating numbers for 24 hour time dropdown
       const times = Array.from(Array(24).keys());
       return (
         <div className="InputForm">

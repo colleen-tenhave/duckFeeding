@@ -45,6 +45,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//creating mySQL connection, and creating new local db/table if they do not exist
+//assumes root password is 'password' 
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
