@@ -12,6 +12,8 @@ class App extends Component {
     };
    }
 
+//callback function to be passed to InputForm. 
+//Will be called after form submission to update the table in the Entries component
   rerenderCallback() {
     this.fetchEntries();
   }
@@ -27,20 +29,21 @@ class App extends Component {
   }
 
   render() {
-      return (
-        <div className="App">
-          <header className="App-header">
-            <h1>
-              Welcome to Duck Hub.
-            </h1>
-            <p className="App-subtitle">
-              The world's largest duck data sharing platform
-            </p>
-          </header>
-          <InputForm rerenderCallback={this.rerenderCallback}/>
-          <Entries submissions={this.state.submissions}/>
-        </div>
-      );
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>
+            Welcome to Duck Hub.
+          </h1>
+          <p className="App-subtitle">
+            The world's largest duck data sharing platform
+          </p>
+        </header>
+        <InputForm rerenderCallback={this.rerenderCallback}/>
+        <Entries submissions={this.state.submissions}/>
+      </div>
+    );
   }
 }
+
 export default App;

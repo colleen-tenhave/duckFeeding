@@ -3,9 +3,6 @@ import './App.css';
 import './Entries.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const data = this.props.submissions;
@@ -29,16 +26,16 @@ class App extends Component {
             </tr>
           </thead>
           <tbody>
-        {data.map(function(entry, idx){
-          return (
-          <tr key={idx}>
-            <td>{entry.feedingTime}</td>
-            <td> {entry.feedingLocation}</td>
-            <td>{entry.foodType}</td>
-            <td>{entry.numberOfDucks}</td
-            ><td> {entry.quantityOfFood}</td>
-          </tr>)
-        })}
+            {data.map(function(entry, idx){
+              return (
+              <tr key={idx}>
+                <td>{entry.feedingTime}</td>
+                <td> {entry.feedingLocation}</td>
+                <td>{entry.foodType}</td>
+                <td>{entry.numberOfDucks}</td
+                ><td> {entry.quantityOfFood}</td>
+              </tr>)
+            })}
           </tbody>
         </table>
       </div>
